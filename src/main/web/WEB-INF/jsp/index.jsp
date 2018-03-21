@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -183,24 +184,17 @@ function mcancelclosetime()
 					<div class="cat_bd" style="display:block;">
 					<ul>
 					<li class="cat_item">
-						<h4 class="cat_tit"><a href="#" class="cat_tit_link">食品、饮料、酒水</a><span class="s_arrow">></span></h4>
+						<h4 class="cat_tit"><a href="#" class="cat_tit_link">${name}</a><span class="s_arrow">></span></h4>
 						<div class="cat_cont">
 							<div class="cat_cont_lft">
 							<dl class="cf">
-								<dt><a href="#">进口食品</a></dt>
+								<dt><a href="#">${typeName}</a></dt>
 								<dd>
-									<ul>
-										<li class="first"><a href="#">进口米</a></li>
-										<li><a href="#">进口饼干糕点</a></li>
-										<li><a href="#">进口冲饮</a></li>
-										<li><a href="#">进口牛奶</a></li>
-										<li><a href="#">进口薯片</a></li>
-										<li><a href="#">进口矿泉水</a></li>
-										<li><a href="#">进口柚子茶/奶茶</a></li>
-										<li><a href="#">进口花果茶</a></li>
-										<li><a href="#">进口肉干/鱼干</a></li>
-										<li><a href="#" class="more">更多</a></li>
-									</ul>
+									<c:forEach items="${list}" var="comm">
+										<ul>
+											<li><a href="#">${comm.typeName}</a></li>
+										</ul>
+									</c:forEach>
 								</dd>
 							</dl>
 							

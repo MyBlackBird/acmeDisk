@@ -7,23 +7,38 @@ public class Commoditykind {
     /*
     *
     *
-        商品类型	typeId	int			TRUE	FALSE	TRUE
-        商品ID	commodityID	int			FALSE	TRUE	FALSE
-        类型名称	typeName	varchar(50)	50		FALSE	FALSE	FALSE
+
+            FieldTypeComment
+            typeIdint(11) NOT NULL商品类型
+            commodityIDint(11) NULL商品ID
+            typeNamevarchar(50) NULL类型名称
+            parentidint(11) NULL父id
+            urlvarchar(50) NULL跳转地址
     *
     * */
-    private int typeId , commodityID ;
-    private String typeName;
-    private Commodity commodity;
+    private int typeId , commodityID ,parentId;
+    private String typeName,url;
 
     public Commoditykind() {
     }
 
-    public Commoditykind(int typeId, int commodityID, String typeName, Commodity commodity) {
+    public Commoditykind(int typeId, int commodityID, int parentId, String typeName, String url) {
         this.typeId = typeId;
         this.commodityID = commodityID;
+        this.parentId = parentId;
         this.typeName = typeName;
-        this.commodity = commodity;
+        this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return "Commoditykind{" +
+                "typeId=" + typeId +
+                ", commodityID=" + commodityID +
+                ", parentId=" + parentId +
+                ", typeName='" + typeName + '\'' +
+                ", url='" + url + '\'' +
+                '}';
     }
 
     public int getTypeId() {
@@ -42,6 +57,14 @@ public class Commoditykind {
         this.commodityID = commodityID;
     }
 
+    public int getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
+    }
+
     public String getTypeName() {
         return typeName;
     }
@@ -50,21 +73,11 @@ public class Commoditykind {
         this.typeName = typeName;
     }
 
-    public Commodity getCommodity() {
-        return commodity;
+    public String getUrl() {
+        return url;
     }
 
-    public void setCommodity(Commodity commodity) {
-        this.commodity = commodity;
-    }
-
-    @Override
-    public String toString() {
-        return "Commoditykind{" +
-                "typeId=" + typeId +
-                ", commodityID=" + commodityID +
-                ", typeName='" + typeName + '\'' +
-                ", commodity=" + commodity +
-                '}';
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

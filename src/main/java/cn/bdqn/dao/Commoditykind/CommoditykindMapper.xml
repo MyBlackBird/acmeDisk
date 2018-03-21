@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.dao.Commoditykind.CommoditykindMapper">
+
+    <resultMap id="comMap" type="Commoditykind">
+        <id property="typeId" column="typeId"/>
+        <result property="commodityID" column="commodityid"/>
+        <result property="typeName" column="typeName"/>
+        <result property="url" column="url"/>
+    </resultMap>
+
+    <select id="queryParentidBy0" resultMap="comMap">
+        SELECT * FROM `commoditykind` WHERE parentid = 0
+    </select>
+
+    <select id="queryCommTypeIdBy1" resultMap="comMap">
+        SELECT * FROM `commoditykind` WHERE typeId = 1
+    </select>
+
+    <select id="queryCommTypeIdBy12" resultMap="comMap">
+         SELECT * FROM `commoditykind` WHERE typeId = 12
+    </select>
+
+    <select id="queryParentidBy12" resultMap="comMap">
+        SELECT * FROM `commoditykind` WHERE parentid = 12
+    </select>
+</mapper>
